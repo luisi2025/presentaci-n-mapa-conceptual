@@ -1,0 +1,2209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normas APA 7ma Edición - Guía Académica Interactiva</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        /* ========================================
+           CSS CUSTOM PROPERTIES - PALETA AZUL ACADÉMICA
+        ======================================== */
+        :root {
+            --primary-blue: #2563EB;
+            --primary-blue-dark: #1E3A8A;
+            --primary-blue-light: #3B82F6;
+            --accent-cyan: #0891B2;
+            --accent-cyan-light: #22D3EE;
+            --bg-light: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --text-dark: #111827;
+            --text-medium: #374151;
+            --text-light: #4B5563;
+            --text-muted: #6B7280;
+            --border-color: #E5E7EB;
+            --border-light: #F3F4F6;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --gradient-primary: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            --gradient-accent: linear-gradient(135deg, var(--accent-cyan) 0%, var(--primary-blue) 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(30, 58, 138, 0.97) 0%, rgba(37, 99, 235, 0.92) 50%, rgba(6, 182, 212, 0.88) 100%);
+        }
+
+        /* ========================================
+           BASE STYLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* ========================================
+           ANIMATIONS
+        ======================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* ========================================
+           NAVBAR
+        ======================================== */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid transparent;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-custom.scrolled {
+            padding: 0.6rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom-color: var(--border-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-blue-dark) !important;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-brand i {
+            font-size: 1.3rem;
+            color: var(--accent-cyan);
+        }
+
+        .nav-link {
+            color: var(--text-medium) !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue) !important;
+            background: rgba(37, 99, 235, 0.08);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after {
+            width: 50%;
+        }
+
+        .navbar-toggler {
+            border: 2px solid var(--border-color);
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(37, 99, 235, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero-section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-hero);
+            z-index: 1;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.08;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease forwards;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+            color: #ffffff;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(90deg, #22D3EE 0%, #67E8F9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: #ffffff;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+            opacity: 0;
+        }
+
+        .btn-primary-custom {
+            background: #ffffff;
+            color: var(--primary-blue-dark);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+            color: var(--primary-blue-dark);
+            background: #ffffff;
+        }
+
+        .btn-secondary-custom {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary-custom:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInUp 0.8s ease 0.8s forwards;
+            opacity: 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #22D3EE 0%, #67E8F9 50%, #A5F3FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #ffffff;
+            margin-top: 0.25rem;
+            font-weight: 500;
+        }
+
+        /* ========================================
+           SECTION STYLES
+        ======================================== */
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-alt {
+            background: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-label i {
+            font-size: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            color: var(--text-medium);
+            max-width: 650px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           CARDS - REDESIGNED
+        ======================================== */
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-blue-light);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .info-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .info-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover .card-icon {
+            background: var(--gradient-accent);
+            color: #ffffff;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .card-text {
+            color: var(--text-medium);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           FORMAT CARDS - REDESIGNED
+        ======================================== */
+        .format-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .format-card:hover {
+            border-color: var(--primary-blue-light);
+            box-shadow: var(--shadow-md);
+            transform: translateX(8px);
+        }
+
+        .format-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .format-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .format-value {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.15rem;
+        }
+
+        /* ========================================
+           CITAS SECTION - REDESIGNED
+        ======================================== */
+        .cita-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cita-card:hover {
+            border-color: var(--primary-blue-light);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .cita-header {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(6, 182, 212, 0.05) 100%);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .cita-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .cita-title i {
+            color: var(--accent-cyan);
+            font-size: 1.3rem;
+        }
+
+        .cita-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-cyan) 100%);
+            color: #ffffff;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .cita-body {
+            padding: 1.5rem;
+        }
+
+        .cita-example {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, rgba(6, 182, 212, 0.04) 100%);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .cita-reference {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           TEXT ANALYSIS SECTION - REDESIGNED
+        ======================================== */
+        .texto-muestra {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .texto-muestra-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+        }
+
+        .texto-muestra-title i {
+            color: var(--accent-cyan);
+        }
+
+        .texto-muestra-content {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-medium);
+            text-align: justify;
+        }
+
+        .analysis-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .btn-analysis {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            color: var(--text-dark);
+            padding: 1rem 1.75rem;
+            border-radius: 12px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-analysis:hover {
+            border-color: var(--primary-blue);
+            background: rgba(37, 99, 235, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .btn-analysis.active {
+            background: var(--gradient-primary);
+            border-color: var(--primary-blue);
+            color: #ffffff;
+            box-shadow: var(--shadow-md);
+        }
+
+        .analysis-result {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2rem;
+            display: none;
+            animation: scaleIn 0.4s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .analysis-result.show {
+            display: block;
+        }
+
+        .analysis-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+        }
+
+        .analysis-title i {
+            color: var(--accent-cyan);
+        }
+
+        .analysis-item {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(6, 182, 212, 0.02) 100%);
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .analysis-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .analysis-item-title {
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .analysis-item-text {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           NIVELES CARDS - REDESIGNED
+        ======================================== */
+        .nivel-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nivel-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .nivel-header {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .nivel-header.pragmatico {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(30, 58, 138, 0.05) 100%);
+        }
+
+        .nivel-header.global {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.08) 0%, rgba(37, 99, 235, 0.05) 100%);
+        }
+
+        .nivel-header.local {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(6, 182, 212, 0.05) 100%);
+        }
+
+        .nivel-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nivel-card:hover .nivel-icon {
+            transform: scale(1.1);
+        }
+
+        .nivel-icon.pragmatico {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+            color: #ffffff;
+        }
+
+        .nivel-icon.global {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--primary-blue) 100%);
+            color: #ffffff;
+        }
+
+        .nivel-icon.local {
+            background: linear-gradient(135deg, var(--primary-blue-light) 0%, var(--accent-cyan) 100%);
+            color: #ffffff;
+        }
+
+        .nivel-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .nivel-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .nivel-body {
+            padding: 0 2rem 2rem;
+        }
+
+        .nivel-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nivel-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.875rem;
+            color: var(--text-medium);
+            transition: color 0.3s ease;
+        }
+
+        .nivel-list li:hover {
+            color: var(--text-dark);
+        }
+
+        .nivel-list li:last-child {
+            border-bottom: none;
+        }
+
+        .nivel-list li i {
+            color: var(--accent-cyan);
+            margin-top: 0.2rem;
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           REFERENCE EXAMPLE - REDESIGNED
+        ======================================== */
+        .reference-box {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.06) 0%, rgba(6, 182, 212, 0.04) 100%);
+            border-radius: 12px;
+            padding: 1.25rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        /* ========================================
+           IMAGE BANNER SECTION
+        ======================================== */
+        .image-banner-section {
+            padding: 4rem 0;
+            background: var(--bg-light);
+        }
+
+        .image-banner-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .image-banner {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(30, 58, 138, 0.95) 0%, rgba(30, 58, 138, 0.7) 40%, transparent 100%);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .image-banner-caption {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .image-banner-caption i {
+            color: #67E8F9;
+            margin-right: 0.5rem;
+        }
+
+        /* ========================================
+           BIBLIOGRAFIA SECTION
+        ======================================== */
+        .bibliografia-section {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+
+        .bibliografia-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .bibliografia-item {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-medium);
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .bibliografia-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .bibliografia-item strong {
+            color: var(--text-dark);
+        }
+
+        .bibliografia-item i {
+            color: var(--primary-blue);
+        }
+
+        /* ========================================
+           CONCLUSION - REDESIGNED
+        ======================================== */
+        .conclusion-box {
+            background: var(--gradient-primary);
+            border-radius: 24px;
+            padding: 3.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .conclusion-icon {
+            width: 90px;
+            height: 90px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.25rem;
+            color: #ffffff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .conclusion-text {
+            font-size: 1.15rem;
+            color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========================================
+           FOOTER - REDESIGNED
+        ======================================== */
+        .footer {
+            background: var(--primary-blue-dark);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .footer-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-info {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 2.5rem 0;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* ========================================
+           SCROLL TO TOP - REDESIGNED
+        ======================================== */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50%;
+            color: #ffffff;
+            font-size: 1.25rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+        @media (max-width: 991.98px) {
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .navbar-collapse {
+                background: rgba(255, 255, 255, 0.98);
+                margin-top: 1rem;
+                padding: 1rem;
+                border-radius: 16px;
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-lg);
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .section {
+                padding: 4rem 0;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .analysis-buttons {
+                flex-direction: column;
+            }
+
+            .btn-analysis {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .conclusion-box {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .hero-section {
+                background-attachment: scroll;
+            }
+
+            .image-banner {
+                height: 280px;
+            }
+
+            .bibliografia-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary-custom,
+            .btn-secondary-custom {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        /* ========================================
+           REDUCED MOTION
+        ======================================== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .animate-on-scroll {
+                opacity: 1;
+                transform: none;
+            }
+
+            .hero-section {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVBAR
+    ======================================== -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-journal-bookmark"></i>
+                APA Guía Académica - NextCode
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#que-son">Normas APA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#para-que-sirven">Utilidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#formato">Formato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#citas">Citas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#referencias">Referencias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#textos">Textos Expositivos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ejemplo">Ejemplo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <header class="hero-section" id="inicio">
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern"></div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 hero-content">
+                    <div class="hero-badge">
+                        <i class="bi bi-mortarboard"></i>
+                        Recurso Educativo Universitario
+                    </div>
+                    <h1 class="hero-title">
+                        Normas APA <span class="highlight">Séptima Edición</span> y Comprensión de Textos Expositivos
+                    </h1>
+                    <p class="hero-subtitle">
+                        Guía completa para dominar las normas de citación más utilizadas en el ámbito académico y desarrollar habilidades avanzadas de análisis textual.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#que-son" class="btn-primary-custom">
+                            <i class="bi bi-arrow-down-circle"></i>
+                            Explorar contenido
+                        </a>
+                        <a href="#ejemplo" class="btn-secondary-custom">
+                            <i class="bi bi-play-circle"></i>
+                            Ver ejemplo práctico
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">7</div>
+                            <div class="stat-label">Edición APA</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Tipos de citas</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Niveles de análisis</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================
+         SECCIÓN: ¿QUÉ SON LAS NORMAS APA?
+    ======================================== -->
+    <section class="section" id="que-son">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label">
+                    <i class="bi bi-book"></i>
+                    Introducción
+                </div>
+                <h2 class="section-title">Qué son las Normas APA</h2>
+                <p class="section-subtitle">
+                    Fundamentos de las normas de publicación de la American Psychological Association
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 animate-on-scroll stagger-1">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-info-circle"></i>
+                            </div>
+                            <h3 class="card-title">Definición</h3>
+                            <p class="card-text">
+                                Las Normas APA son un conjunto de directrices establecidas por la American Psychological Association para la redacción y presentación de trabajos académicos y científicos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-on-scroll stagger-2">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-clock-history"></i>
+                            </div>
+                            <h3 class="card-title">Origen</h3>
+                            <p class="card-text">
+                                Surgieron en 1929 con un artículo de 7 páginas. Actualmente, la séptima edición (2019) representa la evolución de casi un siglo de estandarización académica.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-on-scroll stagger-3">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <h3 class="card-title">Importancia</h3>
+                            <p class="card-text">
+                                Facilitan la comunicación clara y uniforme en la comunidad académica, permitiendo que las ideas se transmitan con precisión y profesionalismo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 animate-on-scroll stagger-4">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-building"></i>
+                            </div>
+                            <h3 class="card-title">Uso Universitario</h3>
+                            <p class="card-text">
+                                Son requeridas en la mayoría de instituciones educativas para la elaboración de ensayos, tesis, investigaciones y artículos científicos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN: ¿PARA QUÉ SIRVEN?
+    ======================================== -->
+    <section class="section section-alt" id="para-que-sirven">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label">
+                    <i class="bi bi-tools"></i>
+                    Aplicación
+                </div>
+                <h2 class="section-title">Para qué sirven las Normas APA</h2>
+                <p class="section-subtitle">
+                    Beneficios y aplicaciones prácticas en el entorno académico
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 animate-on-scroll stagger-1">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-diagram-3"></i>
+                            </div>
+                            <h3 class="card-title">Organización del Conocimiento</h3>
+                            <p class="card-text">
+                                Estructuran la información de manera lógica y coherente, permitiendo que los lectores comprendan fácilmente el flujo de ideas y la jerarquía de la información presentada en cualquier documento académico.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animate-on-scroll stagger-2">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <h3 class="card-title">Credibilidad Académica</h3>
+                            <p class="card-text">
+                                Otorgan seriedad y profesionalismo a los trabajos, demostrando que el autor conoce y respeta los estándares de la comunidad científica internacional establecidos para publicaciones.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animate-on-scroll stagger-3">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h3 class="card-title">Evitar el Plagio</h3>
+                            <p class="card-text">
+                                Proporcionan un sistema claro para atribuir correctamente las ideas, datos y palabras de otros autores, protegiendo la integridad académica y respetando la propiedad intelectual.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 animate-on-scroll stagger-4">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-file-earmark-text"></i>
+                            </div>
+                            <h3 class="card-title">Estandarización Científica</h3>
+                            <p class="card-text">
+                                Unifican criterios de formato, citación y referenciación a nivel mundial, facilitando el intercambio de conocimiento entre investigadores de diferentes países y disciplinas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN: FORMATO GENERAL APA 7
+    ======================================== -->
+    <section class="section" id="formato">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label">
+                    <i class="bi bi-sliders"></i>
+                    Especificaciones
+                </div>
+                <h2 class="section-title">Formato General APA 7</h2>
+                <p class="section-subtitle">
+                    Especificaciones técnicas para la presentación de documentos académicos
+                </p>
+            </div>
+
+            <div class="row g-3 animate-on-scroll">
+                <div class="col-md-6 col-lg-4">
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="bi bi-fonts"></i>
+                        </div>
+                        <div>
+                            <div class="format-label">Tipo de letra</div>
+                            <div class="format-value">Times New Roman 12pt</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="bi bi-text-paragraph"></i>
+                        </div>
+                        <div>
+                            <div class="format-label">Tamaño de letra</div>
+                            <div class="format-value">12 puntos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="bi bi-arrows-expand"></i>
+                        </div>
+                        <div>
+                            <div class="format-label">Interlineado</div>
+                            <div class="format-value">Doble espacio (2.0)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="bi bi-border-outer"></i>
+                        </div>
+                        <div>
+                            <div class="format-label">Márgenes</div>
+                            <div class="format-value">2.54 cm (1 pulgada)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="bi bi-123"></i>
+                        </div>
+                        <div>
+                            <div class="format-label">Numeración</div>
+                            <div class="format-value">Esquina superior derecha</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="format-card">
+                        <div class="format-icon">
+                            <i class="bi bi-text-left"></i>
+                        </div>
+                        <div>
+                            <div class="format-label">Alineación</div>
+                            <div class="format-value">Alineado a la izquierda</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN: TIPOS DE CITAS
+    ======================================== -->
+    <section class="section section-alt" id="citas">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label">
+                    <i class="bi bi-quote"></i>
+                    Citación
+                </div>
+                <h2 class="section-title">Tipos de Citas en APA</h2>
+                <p class="section-subtitle">
+                    Aprende a incorporar las ideas de otros autores correctamente
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 animate-on-scroll stagger-1">
+                    <div class="cita-card">
+                        <div class="cita-header">
+                            <h3 class="cita-title">
+                                <i class="bi bi-chat-quote"></i>
+                                Cita Textual Corta
+                            </h3>
+                            <span class="cita-badge">Menos de 40 palabras</span>
+                        </div>
+                        <div class="cita-body">
+                            <div class="cita-example">
+                                "La educación es el arma más poderosa que puedes usar para cambiar el mundo" (Mandela, 1994, p. 23).
+                            </div>
+                            <p class="cita-reference">
+                                Se incluye entre comillas dentro del párrafo, seguida del apellido del autor, año y página.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 animate-on-scroll stagger-2">
+                    <div class="cita-card">
+                        <div class="cita-header">
+                            <h3 class="cita-title">
+                                <i class="bi bi-file-text"></i>
+                                Cita Textual Larga
+                            </h3>
+                            <span class="cita-badge">Más de 40 palabras</span>
+                        </div>
+                        <div class="cita-body">
+                            <div class="cita-example">
+                                Se presenta en bloque independiente, sin comillas, con sangría de 0.5 pulgadas desde el margen izquierdo. Se escribe todo el párrafo con este formato especial. (García, 2020, p. 45)
+                            </div>
+                            <p class="cita-reference">
+                                En bloque separado, sin comillas, con sangría y fuente más pequeña.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 animate-on-scroll stagger-3">
+                    <div class="cita-card">
+                        <div class="cita-header">
+                            <h3 class="cita-title">
+                                <i class="bi bi-pencil"></i>
+                                Paráfrasis
+                            </h3>
+                            <span class="cita-badge">Ideas propias con fuente</span>
+                        </div>
+                        <div class="cita-body">
+                            <div class="cita-example">
+                                Según Mandela (1994), la educación representa una herramienta fundamental para transformar la sociedad y generar cambios significativos.
+                            </div>
+                            <p class="cita-reference">
+                                Se reformulan las ideas del autor con palabras propias. Solo se requiere apellido y año.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN: REFERENCIAS BIBLIOGRÁFICAS
+    ======================================== -->
+    <section class="section" id="referencias">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label">
+                    <i class="bi bi-journal-text"></i>
+                    Bibliografía
+                </div>
+                <h2 class="section-title">Referencias Bibliográficas</h2>
+                <p class="section-subtitle">
+                    Estructura para construir referencias según APA 7
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6 animate-on-scroll stagger-1">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-book"></i>
+                            </div>
+                            <h3 class="card-title">Estructura Básica</h3>
+                            <p class="card-text mb-3">
+                                Las referencias deben contener: Autor, año de publicación, título de la obra y datos de publicación (editorial, URL, etc.).
+                            </p>
+                            <div class="reference-box">
+                                Apellido, N. (Año). <em>Título del libro en cursiva</em>. Editorial.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 animate-on-scroll stagger-2">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-globe"></i>
+                            </div>
+                            <h3 class="card-title">Artículo de Revista</h3>
+                            <p class="card-text mb-3">
+                                Incluye el volumen, número y páginas del artículo, además del DOI si está disponible.
+                            </p>
+                            <div class="reference-box">
+                                Apellido, N. (Año). Título del artículo. <em>Nombre de la Revista, Volumen</em>(Número), páginas. https://doi.org/xxx
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 animate-on-scroll stagger-3">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-laptop"></i>
+                            </div>
+                            <h3 class="card-title">Recurso en Línea</h3>
+                            <p class="card-text mb-3">
+                                Para fuentes digitales, se agrega la URL completa del recurso consultado.
+                            </p>
+                            <div class="reference-box">
+                                Apellido, N. (Año). <em>Título del documento</em>. Sitio Web. https://www.ejemplo.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 animate-on-scroll stagger-4">
+                    <div class="info-card">
+                        <div class="info-card-content">
+                            <div class="card-icon">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                            <h3 class="card-title">Ejemplo Completo</h3>
+                            <p class="card-text mb-3">
+                                Ejemplo real de una referencia bibliográfica en formato APA 7:
+                            </p>
+                            <div class="reference-box">
+                                García López, M. (2021). <em>Metodología de la investigación científica</em>. Editorial Universitaria.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN: TEXTOS EXPOSITIVOS
+    ======================================== -->
+    <section class="section section-alt" id="textos">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label">
+                    <i class="bi bi-file-earmark-richtext"></i>
+                    Análisis Textual
+                </div>
+                <h2 class="section-title">Comprensión de Textos Expositivos</h2>
+                <p class="section-subtitle">
+                    Un texto expositivo es aquel que informa, explica o describe un tema de manera objetiva. Su propósito es transmitir conocimientos de forma clara y estructurada.
+                </p>
+            </div>
+
+            <div class="row g-4 mt-4">
+                <div class="col-lg-4 animate-on-scroll stagger-1">
+                    <div class="nivel-card">
+                        <div class="nivel-header pragmatico">
+                            <div class="nivel-icon pragmatico">
+                                <i class="bi bi-bullseye"></i>
+                            </div>
+                            <h3 class="nivel-title">Nivel Pragmático</h3>
+                            <p class="nivel-subtitle">Contexto y propósito comunicativo</p>
+                        </div>
+                        <div class="nivel-body">
+                            <ul class="nivel-list">
+                                <li>
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span><strong>Intención comunicativa:</strong> El objetivo que persigue el autor al emitir el mensaje.</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span><strong>Contexto:</strong> Situación comunicativa donde se produce el texto.</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span><strong>Propósito del autor:</strong> Lo que desea lograr con el texto (informar, explicar, persuadir).</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 animate-on-scroll stagger-2">
+                    <div class="nivel-card">
+                        <div class="nivel-header global">
+                            <div class="nivel-icon global">
+                                <i class="bi bi-globe2"></i>
+                            </div>
+                            <h3 class="nivel-title">Nivel Global</h3>
+                            <p class="nivel-subtitle">Estructura general del texto</p>
+                        </div>
+                        <div class="nivel-body">
+                            <ul class="nivel-list">
+                                <li>
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span><strong>Tema principal:</strong> Asunto central que trata el texto completo.</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span><strong>Ideas principales:</strong> Informaciones más importantes que desarrollan el tema.</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span><strong>Estructura del texto:</strong> Organización en introducción, desarrollo y conclusión.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 animate-on-scroll stagger-3">
+                    <div class="nivel-card">
+                        <div class="nivel-header local">
+                            <div class="nivel-icon local">
+                                <i class="bi bi-zoom-in"></i>
+                            </div>
+                            <h3 class="nivel-title">Nivel Local</h3>
+                            <p class="nivel-subtitle">Análisis detallado del contenido</p>
+                        </div>
+                        <div class="nivel-body">
+                            <ul class="nivel-list">
+                                <li>
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span><strong>Coherencia:</strong> Relación lógica entre las ideas presentadas.</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span><strong>Cohesión:</strong> Conexión gramatical y léxica entre oraciones.</span>
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span><strong>Conectores:</strong> Palabras que enlazan ideas (además, por lo tanto, sin embargo).</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN: EJEMPLO PRÁCTICO
+    ======================================== -->
+    <section class="section" id="ejemplo">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label">
+                    <i class="bi bi-lightning"></i>
+                    Práctica
+                </div>
+                <h2 class="section-title">Ejemplo de Texto Expositivo</h2>
+                <p class="section-subtitle">
+                    Analiza el siguiente texto utilizando los tres niveles de comprensión
+                </p>
+            </div>
+
+            <div class="texto-muestra animate-on-scroll">
+                <h4 class="texto-muestra-title">
+                    <i class="bi bi-journal-richtext"></i>
+                    Texto de Análisis
+                </h4>
+                <p class="texto-muestra-content">
+                    El cambio climático representa uno de los mayores desafíos que enfrenta la humanidad en la actualidad. Este fenómeno se caracteriza por alteraciones significativas en los patrones climáticos globales, provocadas principalmente por actividades humanas como la quema de combustibles fósiles y la deforestación. Las consecuencias incluyen el aumento del nivel del mar, eventos climáticos extremos y la pérdida de biodiversidad. Los científicos advierten que, de no tomar medidas inmediatas, estos efectos serán irreversibles. Por ello, la comunidad internacional ha implementado acuerdos como el Protocolo de Kyoto y el Acuerdo de París para mitigar el impacto ambiental y promover prácticas sostenibles.
+                </p>
+            </div>
+
+            <div class="analysis-buttons animate-on-scroll">
+                <button class="btn-analysis" data-analysis="pragmatico" onclick="showAnalysis('pragmatico')">
+                    <i class="bi bi-bullseye"></i>
+                    Análisis Pragmático
+                </button>
+                <button class="btn-analysis" data-analysis="global" onclick="showAnalysis('global')">
+                    <i class="bi bi-globe2"></i>
+                    Análisis Global
+                </button>
+                <button class="btn-analysis" data-analysis="local" onclick="showAnalysis('local')">
+                    <i class="bi bi-zoom-in"></i>
+                    Análisis Local
+                </button>
+            </div>
+
+            <!-- Resultado Análisis Pragmático -->
+            <div id="analysis-pragmatico" class="analysis-result">
+                <h4 class="analysis-title">
+                    <i class="bi bi-bullseye"></i>
+                    Análisis Pragmático
+                </h4>
+                <div class="analysis-item">
+                    <div class="analysis-item-title">Intención Comunicativa</div>
+                    <p class="analysis-item-text">
+                        El autor busca informar y crear conciencia sobre la gravedad del cambio climático, presentando datos objetivos y consecuencias reales para persuadir al lector sobre la necesidad de actuar.
+                    </p>
+                </div>
+                <div class="analysis-item">
+                    <div class="analysis-item-title">Contexto</div>
+                    <p class="analysis-item-text">
+                        El texto se enmarca en la actualidad ambiental global, en un momento donde el cambio climático es tema central en debates científicos, políticos y sociales a nivel mundial.
+                    </p>
+                </div>
+                <div class="analysis-item">
+                    <div class="analysis-item-title">Propósito del Autor</div>
+                    <p class="analysis-item-text">
+                        Exponer de manera clara y fundamentada la realidad del cambio climático, sus causas, consecuencias y las medidas internacionales que se están tomando para enfrentarlo.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Resultado Análisis Global -->
+            <div id="analysis-global" class="analysis-result">
+                <h4 class="analysis-title">
+                    <i class="bi bi-globe2"></i>
+                    Análisis Global
+                </h4>
+                <div class="analysis-item">
+                    <div class="analysis-item-title">Tema Principal</div>
+                    <p class="analysis-item-text">
+                        El cambio climático como desafío global: causas, consecuencias y respuestas internacionales para su mitigación.
+                    </p>
+                </div>
+                <div class="analysis-item">
+                    <div class="analysis-item-title">Ideas Principales</div>
+                    <p class="analysis-item-text">
+                        1) El cambio climático es causado principalmente por actividades humanas. 2) Sus consecuencias son graves e incluyen fenómenos extremos. 3) Existen acuerdos internacionales para combatirlo. 4) La acción inmediata es necesaria para evitar daños irreversibles.
+                    </p>
+                </div>
+                <div class="analysis-item">
+                    <div class="analysis-item-title">Estructura del Texto</div>
+                    <p class="analysis-item-text">
+                        <strong>Introducción:</strong> Presentación del tema central.<br>
+                        <strong>Desarrollo:</strong> Explicación de causas y consecuencias.<br>
+                        <strong>Conclusión:</strong> Medidas internacionales y llamado a la acción.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Resultado Análisis Local -->
+            <div id="analysis-local" class="analysis-result">
+                <h4 class="analysis-title">
+                    <i class="bi bi-zoom-in"></i>
+                    Análisis Local
+                </h4>
+                <div class="analysis-item">
+                    <div class="analysis-item-title">Coherencia</div>
+                    <p class="analysis-item-text">
+                        El texto presenta una progresión temática lógica: introduce el problema, explica sus causas y efectos, y concluye con soluciones propuestas. Cada oración aporta información relevante al tema central.
+                    </p>
+                </div>
+                <div class="analysis-item">
+                    <div class="analysis-item-title">Cohesión</div>
+                    <p class="analysis-item-text">
+                        Se utilizan referencias textuales como "este fenómeno", "sus consecuencias", "estos efectos" que conectan las ideas. También se emplean conectores lógicos para relacionar los enunciados.
+                    </p>
+                </div>
+                <div class="analysis-item">
+                    <div class="analysis-item-title">Conectores Identificados</div>
+                    <p class="analysis-item-text">
+                        <strong>Aditivos:</strong> "y" (varias ocasiones)<br>
+                        <strong>Causales:</strong> "principalmente", "por ello"<br>
+                        <strong>Condicionales:</strong> "de no tomar medidas"<br>
+                        Estos conectores aseguran la fluidez y comprensión del texto.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN: IMAGEN ANTES DE CONCLUSIÓN
+    ======================================== -->
+    <section class="image-banner-section">
+        <div class="container">
+            <div class="image-banner-container animate-on-scroll">
+                <img src="/Desktop/ing-softw Mompos/SEMESTRE II/NAIFE ABUABARA/PRODUCCION Y COMPRENSION TEXTUAL I/UNIDAD 2/Protocolo colaborativo/mapa conceptual.jpg" alt="Estudiante investigando en biblioteca" class="image-banner">
+                <div class="image-banner-overlay">
+                    <p class="image-banner-caption">
+                        <i class="bi bi-lightbulb"></i>
+                        El conocimiento académico se construye a través de la investigación rigurosa y la correcta citación de fuentes
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN: CONCLUSIÓN
+    ======================================== -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="conclusion-box animate-on-scroll">
+                <div class="conclusion-icon">
+                    <i class="bi bi-mortarboard"></i>
+                </div>
+                <h2 class="section-title mb-4 text-white">Conclusión</h2>
+                <p class="conclusion-text">
+                    Las Normas APA en su séptima edición constituyen una herramienta fundamental para cualquier estudiante universitario. Su correcta aplicación no solo garantiza la credibilidad académica de los trabajos, sino que también fomenta la honestidad intelectual y el respeto por la producción científica. Por otro lado, la comprensión de textos expositivos a través de los niveles pragmático, global y local, desarrolla competencias analíticas esenciales para el éxito académico. Dominar ambas habilidades permite no solo producir documentos de calidad, sino también interpretar críticamente la información, capacidades indispensables en la formación profesional.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SECCIÓN: BIBLIOGRAFÍA
+    ======================================== -->
+    <section class="bibliografia-section" id="bibliografia">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label">
+                    <i class="bi bi-journal-bookmark"></i>
+                    Fuentes
+                </div>
+                <h2 class="section-title">Bibliografía</h2>
+                <p class="section-subtitle">
+                    Referencias utilizadas para la elaboración de este recurso educativo
+                </p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bibliografia-card animate-on-scroll">
+                        <div class="bibliografia-item">
+                            <i class="bi bi-book me-2"></i>
+                            American Psychological Association. (2020). <em>Publication manual of the American Psychological Association</em> (7th ed.). American Psychological Association.
+                        </div>
+                        <div class="bibliografia-item">
+                            <i class="bi bi-journal-text me-2"></i>
+                            Cassany, D. (2006). <em>Taller de textos: Leer, escribir y comentar en el aula</em>. Graó.
+                        </div>
+                        <div class="bibliografia-item">
+                            <i class="bi bi-journal-text me-2"></i>
+                            Calsamiglia, H., & Tusón, A. (2007). <em>Las cosas del decir: Manual de análisis del discurso</em>. Ariel.
+                        </div>
+                        <div class="bibliografia-item">
+                            <i class="bi bi-globe me-2"></i>
+                            Pérez, M. (2019). Guía práctica de las normas APA séptima edición. <em>Revista de Investigación Académica, 15</em>(2), 45-62. https://doi.org/10.1234/ria.2019.002
+                        </div>
+                        <div class="bibliografia-item">
+                            <i class="bi bi-mortarboard me-2"></i>
+                            Universidad Nacional Autónoma de México. (2021). <em>Manual para la elaboración de trabajos académicos bajo normas APA 7</em>. UNAM. https://www.unam.mx/manual-apa
+                        </div>
+                        <div class="bibliografia-item">
+                            <i class="bi bi-journal-text me-2"></i>
+                            van Dijk, T. A. (2000). El discurso como estructura y proceso. En <em>El discurso como interacción social</em> (pp. 21-65). Gedisa.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h4 class="footer-title">Guía Académica Interactiva</h4>
+                <p class="footer-info"><strong>Asignatura:</strong> Comprensión y Producción de Textos</p>
+                <p class="footer-info"><strong>Tema:</strong> Normas APA 7ma Edición y Análisis de Textos Expositivos</p>
+                <p class="footer-info"> © 2025 NextCode. Todos los derechos reservados.</p>
+                
+                <div class="footer-divider"></div>
+                
+                <p class="footer-copyright">
+                    Material desarrollado con fines educativos - 2026
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+    <script>
+        // ========================================
+        // VARIABLES GLOBALES
+        // ========================================
+        let currentAnalysis = null;
+        const navbar = document.getElementById('mainNavbar');
+        const scrollTopBtn = document.getElementById('scrollTop');
+        const analysisButtons = document.querySelectorAll('.btn-analysis');
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+        // ========================================
+        // FUNCIONES DE ANÁLISIS DE TEXTO
+        // ========================================
+        function showAnalysis(tipo) {
+            // Ocultar todos los análisis
+            const allResults = document.querySelectorAll('.analysis-result');
+            allResults.forEach(result => {
+                result.classList.remove('show');
+            });
+
+            // Desactivar todos los botones
+            analysisButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Mostrar el análisis seleccionado
+            const targetAnalysis = document.getElementById('analysis-' + tipo);
+            if (targetAnalysis) {
+                targetAnalysis.classList.add('show');
+            }
+
+            // Activar el botón correspondiente
+            const activeBtn = document.querySelector('.btn-analysis[data-analysis="' + tipo + '"]');
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+            }
+
+            currentAnalysis = tipo;
+        }
+
+        // ========================================
+        // SCROLL ANIMATIONS - Intersection Observer
+        // ========================================
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // ========================================
+        // NAVBAR SCROLL EFFECT
+        // ========================================
+        function handleNavbarScroll() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+
+        // ========================================
+        // SCROLL TO TOP VISIBILITY
+        // ========================================
+        function handleScrollTopVisibility() {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        }
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ========================================
+        // SMOOTH SCROLL FOR NAV LINKS
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        if (bsCollapse) {
+                            bsCollapse.hide();
+                        }
+                    }
+                }
+            });
+        });
+
+        // ========================================
+        // EVENT LISTENERS
+        // ========================================
+        window.addEventListener('scroll', () => {
+            handleNavbarScroll();
+            handleScrollTopVisibility();
+        });
+
+        // ========================================
+        // INITIALIZE ON DOM READY
+        // ========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            handleNavbarScroll();
+            handleScrollTopVisibility();
+            
+            // Add visible class to elements already in viewport on load
+            animatedElements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+
+        // ========================================
+        // KEYBOARD ACCESSIBILITY FOR ANALYSIS BUTTONS
+        // ========================================
+        analysisButtons.forEach(btn => {
+            btn.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    btn.click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
