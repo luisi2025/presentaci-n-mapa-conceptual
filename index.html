@@ -145,6 +145,17 @@
             }
         }
 
+        @keyframes pulseRing {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(40px);
@@ -774,6 +785,137 @@
         }
 
         /* ========================================
+           MAPA CONCEPTUAL BUTTON - NEW
+        ======================================== */
+        .mapa-conceptual-section {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .btn-mapa-conceptual {
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--primary-blue) 100%);
+            color: #ffffff;
+            border: none;
+            padding: 1.25rem 2.5rem;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-mapa-conceptual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-mapa-conceptual:hover::before {
+            left: 100%;
+        }
+
+        .btn-mapa-conceptual:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 35px -5px rgba(8, 145, 178, 0.4);
+        }
+
+        .btn-mapa-conceptual i {
+            font-size: 1.3rem;
+        }
+
+        .btn-mapa-conceptual .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            animation: pulseRing 2s ease-out infinite;
+        }
+
+        /* ========================================
+           MODAL STYLES - NEW
+        ======================================== */
+        .modal-content {
+            border: none;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .modal-header {
+            background: var(--gradient-primary);
+            border: none;
+            padding: 1.5rem 2rem;
+        }
+
+        .modal-title {
+            color: #ffffff;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .modal-title i {
+            color: var(--accent-cyan-light);
+        }
+
+        .btn-close {
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+
+        .btn-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            padding: 0;
+            background: var(--bg-light);
+        }
+
+        .modal-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .modal-footer {
+            background: var(--bg-white);
+            border: none;
+            padding: 1.5rem 2rem;
+            justify-content: center;
+        }
+
+        .modal-footer-text {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-footer-text i {
+            color: var(--accent-cyan);
+        }
+
+        /* ========================================
            NIVELES CARDS - REDESIGNED
         ======================================== */
         .nivel-card {
@@ -1172,6 +1314,11 @@
             .bibliografia-card {
                 padding: 1.5rem;
             }
+
+            .btn-mapa-conceptual {
+                padding: 1rem 1.75rem;
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 575.98px) {
@@ -1210,6 +1357,10 @@
 
             .hero-section {
                 background-attachment: scroll;
+            }
+
+            .btn-mapa-conceptual .pulse-ring {
+                animation: none;
             }
         }
     </style>
@@ -1932,25 +2083,52 @@
                     </p>
                 </div>
             </div>
+
+            <!-- ========================================
+                 BOTÓN MAPA CONCEPTUAL - NEW SECTION
+            ======================================== -->
+            <div class="mapa-conceptual-section animate-on-scroll">
+                <button class="btn-mapa-conceptual" data-bs-toggle="modal" data-bs-target="#mapaModal">
+                    <span class="pulse-ring"></span>
+                    <i class="bi bi-diagram-3-fill"></i>
+                    Ver Mapa Conceptual de Análisis
+                </button>
+            </div>
         </div>
     </section>
 
     <!-- ========================================
-         SECCIÓN: IMAGEN ANTES DE CONCLUSIÓN
+         MODAL MAPA CONCEPTUAL - NEW AQUI LA IMAGEN
     ======================================== -->
-    <section class="image-banner-section">
-        <div class="container">
-            <div class="image-banner-container animate-on-scroll">
-                <img src="./mapa.jpeg" class="image-banner">
-                <div class="image-banner-overlay">
-                    <p class="image-banner-caption">
-                        <i class="bi bi-lightbulb"></i>
-                        El conocimiento académico se construye a través de la investigación rigurosa y la correcta citación de fuentes
+    <div class="modal fade" id="mapaModal" tabindex="-1" aria-labelledby="mapaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mapaModalLabel">
+                        <i class="bi bi-diagram-3-fill"></i>
+                        Mapa Conceptual: Comprensión de Textos Expositivos
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-image-container">
+                        <img src="https://z-cdn-media.chatglm.cn/files/07b397d2-1d8c-48ad-8b7d-8dad329cade3.jpeg?auth_key=1874478657-a3a6fb7196aa48e5aec09bbd9fc5e3f3-0-f167d50e687b03e86045bbf5e8a3d6b0" alt="Mapa Conceptual - Comprensión de Textos Expositivos" class="modal-image">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p class="modal-footer-text">
+                        <i class="bi bi-info-circle"></i>
+                        Este mapa muestra los tres niveles de análisis para la comprensión de textos expositivos
                     </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- ========================================
+         SECCIÓN: IMAGEN ANTES DE CONCLUSIÓN
+    ======================================== -->
+    
 
     <!-- ========================================
          SECCIÓN: CONCLUSIÓN
@@ -2027,7 +2205,7 @@
                 <h4 class="footer-title">Guía Académica Interactiva</h4>
                 <p class="footer-info"><strong>Asignatura:</strong> Comprensión y Producción de Textos</p>
                 <p class="footer-info"><strong>Tema:</strong> Normas APA 7ma Edición y Análisis de Textos Expositivos</p>
-                <p class="footer-info"> © 2025 NextCode. Todos los derechos reservados.</p>
+                <p class="footer-info"> © 2026 NextCode. Todos los derechos reservados.</p>
                 
                 <div class="footer-divider"></div>
                 
